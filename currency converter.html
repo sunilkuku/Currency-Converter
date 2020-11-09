@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="currency converter.css" />
+    <title>CC Currency Converter</title>
+  </head>
+  <body>
+    <h1>Currency Converter</h1>
+
+    <div class="header">
+      <div class="box">
+        <input
+          type="number"
+          name=""
+          required="required"
+          placeholder="Amount"
+          id="d1"
+        />
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton1"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          From
+        </button>
+        <div
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+          id="dropdown-parent1"
+        ></div>
+      </div>
+
+      <div class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          id="dropdownMenuButton2"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          To
+        </button>
+        <div
+          class="dropdown-menu"
+          aria-labelledby="dropdownMenuButton"
+          id="dropdown-parent2"
+        ></div>
+      </div>
+    </div>
+
+    <div id="d2">
+      <button type="submit" id="button" onclick="makeConvert()">
+        Convert
+      </button>
+    </div>
+    <div class="box-1">
+      <div class="response"></div>
+    </div>
+    <div class="box-2"></div>
+
+    <script type="text/javascript">
+      let json;
+      let Selector1;
+      let Selector2;
+
+      function makeConvert() {
+        const httpRequest = new XMLHttpRequest();
+        httpRequest.onload = function () {
+          if (httpRequest.status === 200) {
+            json = JSON.parse(httpRequest.responseText);
+          } else {
+            alert("There is an error");
+          }
+          let amount = document.querySelector("input").value;
+          if (amount > 0) {
+            document.querySelector(".box-2").innerHTML =
+              "Updated on:" + json.date;
+            let selector1 = document.querySelector("#money1").innerHTML;
+            let selector2 = document.querySelector("#money2").innerHTML;
+            for (v in json.rates) {
+              if (selector1 === v) {
+                Selector1 = json.rates[v];
+                break;
+              } else {
+                Selector1 = 1;
+              }
+            }
+            for (v in json.rates) {
+              if (selector2 === v) {
+                Selector2 = json.rates[v];
+                break;
+              } else {
+                Selector2 = 1;
+              }
+            }
+            let selector = Selector2 / Selector1;
+            let result = amount * selector;
+            document.querySelector(".response").innerHTML =
+              selector2 + " " + result;
+          }
+        };
+        httpRequest.open("GET", "http://data.fixer.io/api/latest?access_key=60a773a0e9d3d61ca5ddb6823c8ca6c9");
+
+        httpRequest.send();
+      }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="convert.js"></script>
+  </body>
+</html>

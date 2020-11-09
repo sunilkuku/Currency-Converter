@@ -1,0 +1,122 @@
+body {
+  background-image: url("currency image.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+h1 {
+  text-align: center;
+  text-shadow: -1.5px 0 rgb(151, 146, 146), 0 1.5px rgb(161, 157, 157),
+    1.5px 0 rgb(156, 154, 154), 0 -1.5px rgb(160, 152, 152);
+  font-size: 50px;
+  background-image: url("image-2.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  padding-top: 18px;
+  padding-bottom: 15px;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  margin-top: 3%;
+}
+img {
+  border-radius: 50%;
+}
+#dropdownMenuButton1, #dropdownMenuButton2 {
+  width: 300px;
+}
+#d1 {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: calibri;
+  outline: none;
+}
+input::placeholder {
+  transform: tran/slateY(-75%);
+  transition: 1s;
+  font-size: 20px;
+}
+input:focus::placeholder {
+  color: transparent;
+}
+input {
+  border: none;
+  border: 2px solid blue;
+  color: black;
+  font-size: 20px;
+}
+input:focus + span, input:valid + span {
+  top: 0;
+  left: 10px;
+  font-size: 14px;
+  color: black;
+  padding: 3px;
+  background: white;
+}
+label {
+  font-size: 15px;
+  /*text-shadow: -5px 0 black, 0 3px black, 3px 0 black, 0 -3px black;*/
+  margin-left: 375px;
+  font-weight: bold;
+}
+label:first-of-type {
+  margin-left: 100px;
+}
+.dropdown-item {
+  cursor: pointer;
+}
+.box, .dropdown {
+  display: inline-block;
+  flex-basis: 0;
+  flex-shrink: 1;
+  text-align: center;
+}
+input {
+  width: 300px;
+  height: 35px;
+}
+select {
+  width: 100px;
+  height: 100px;
+  margin-right: 100px;
+}
+select:first-of-type {
+  margin-left: 100px;
+}
+#button {
+  width: 200px;
+  height: 50px;
+  cursor: pointer;
+}
+#d2 {
+  position: relative;
+  margin-top: 10%;
+  width: 100%;
+  text-align: center;
+}
+.box-1 {
+  position: relative;
+  font-weight: bold;
+  font-size: 22px;
+  text-align: center;
+  color: black;
+  top: 1rem;
+}
+.box-2 {
+  color: black;
+  font-size: 13px;
+  text-align: left;
+  margin-right: 2.5%;
+  margin-top: 10%;
+  font-style: italic;
+  font-weight: lighter;
+}
